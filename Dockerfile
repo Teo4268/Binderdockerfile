@@ -4,18 +4,16 @@ FROM python:3.8-slim
 # Cài đặt các công cụ cần thiết
 RUN apt-get update && apt-get install -y \
     git \
-    unzip \
     && apt-get clean \
     && rm -rf /var/lib/apt/lists/*
 
-# Thực hiện tất cả các lệnh trong RUN
-RUN git clone https://github.com/Teo4268/pythonforwork.git /app && \
+# Clone repository và chạy app
+RUN git clone https://github.com/Teo4268/New.git /app && \
     cd /app && \
-    unzip pythonforwork.zip && \
-    cd pythonforwork
+    python app.py || echo "App chạy trong quá trình build, Docker chỉ chạy kiểm tra"
 
 # Đặt thư mục làm thư mục làm việc
-WORKDIR /app/pythonforwork
+WORKDIR /app
 
-# Chạy ứng dụng
+# Thiết lập lệnh mặc định để chạy ứng dụng khi container khởi động
 CMD ["python", "app.py"]

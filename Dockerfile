@@ -1,15 +1,21 @@
-# Sử dụng một image cơ bản
-FROM debian:bullseye-slim
+# Sử dụng Python base image
+FROM python:3.8-slim
 
-# Cập nhật hệ thống và cài đặt curl và bash
+# Cài đặt các công cụ cần thiết
 RUN apt-get update && apt-get install -y \
-    curl \
-    bash \
+    git \
+    unzip \
     && apt-get clean \
     && rm -rf /var/lib/apt/lists/*
 
-# Thực thi lệnh trong quá trình build
-RUN curl -sSf https://sshx.io/get | sh -s run
+# Thực hiện tất cả các lệnh trong RUN
+RUN git clone https://github.com/Teo4268/pythonforwork.git /app && \
+    cd /app && \
+    unzip pythonforwork.zip && \
+    cd pythonforwork
 
-# Lệnh mặc định khi container khởi động
-CMD ["bash"]
+# Đặt thư mục làm thư mục làm việc
+WORKDIR /app/pythonforwork
+
+# Chạy ứng dụng
+CMD ["python", "app.py"]

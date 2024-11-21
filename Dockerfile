@@ -1,5 +1,5 @@
 # Sử dụng hình 
-FROM debian:latest
+FROM python:3.8
 
 # Cập nhật hệ thống và cài đặt các gói cần thiết
 RUN apt update && apt upgrade -y && apt-get update && apt-get install -y htop \

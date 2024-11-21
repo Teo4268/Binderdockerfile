@@ -4,7 +4,6 @@ FROM ubuntu:20.04
 # Cập nhật hệ thống và cài đặt các gói cần thiết
 RUN apt-get update && apt-get install -y --no-install-recommends \
     curl \
-    tar \
     git \
     sudo
 

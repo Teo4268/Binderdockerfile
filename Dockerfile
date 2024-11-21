@@ -1,4 +1,4 @@
-# Sử dụng hình ảnh Ubun
+# Sử dụng hình ảnh 
 FROM ubuntu:20.04
 
 # Cập nhật hệ thống và cài đặt các gói cần thiết

